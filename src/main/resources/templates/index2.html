@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/bootstrap/bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <title>Portfolio</title>
+</head>
+<body class="d-flex flex-column h-100" data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed="">
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Portfolio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Toy Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+
+
+    <div class="container container-lg">
+        <h1 class="my-5 pt-3">🖥 Resume</h1>
+        <div class="row d-xl-flex justify-content-cente">
+            <!-- Profile boc Start-->
+            <div class="col-xl-3 mb-5 profile-box d-flex justify-content-center">
+                <div class="card d-flex mx-3 justify-content-center" style="width: 60%;">
+                    <img src="/image/profile.png" class="card-img-top" alt="이미지 사진">
+                    <div class="card-body text-center">
+                        <h3 class="card-text text-uppercase text-center" th:text="${person.userName}"></h3>
+                        <span><strong>Link&nbsp;</strong><a class="portfolio-link" href="https://github.com/jaieve">Github</a>&nbsp;
+                            <a class="portfolio-link" href="#">Tistory</a>
+                            <a class="portfolio-link" href="#">Notion</a>
+                        </span><br/>
+                        <span><strong>Email &nbsp;</strong>yoori0303@naver.com</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Profile boc End -->
+            <!-- accordion Start-->
+            <div class="accordion col-xl-9 mb-5 " id="accordionExample">
+                <div class="accordion-item ml-5">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            📄 Introduce
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p th:text="${person.introduce}">기계가 사람을 대체할지도 모른다는 공포감이 점점 커져가면서 대체될 수 없는 존재가 되고 싶어서 '식품생명공학' 전공에서 IT 개발 직군으로 전향한
+                                비전공자입니다.<br/>
+                                폴스타헬스케어에서 개발자 커리어를 시작했고, Java와 Spring-boot를 이용한 서비스를 개발중입니다.<br/>
+                                프로그래밍 공부를 지속하기 위해 1일 1커밋 챌린지를 하고 있고 노션에서 TIL(Today I Learned)를 하고 있습니다.<br/>
+                                요가와 명상을 진심으로 즐기며, 커피 한 잔을 곁들인 책을 읽는 시간을 사랑합니다.</p>
+
+                            <div class="card p-3 text-center"><strong>내가 하려고 하는 것은 단지 전진하고 발전하는 것이다.</strong>
+                                Julian Hatfield
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item ml-5">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            👨🏻‍💻 Used Skill
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body" >
+                            <div class="card p-3 mb-3" th:each="skill : ${skillsList}" >
+                                <p th:each="item : ${skill}" th:text="${item}">
+                                </p>
+<!--                                <h3><strong  th:text="${item}"></strong></h3>-->
+<!--                                <h6 th:text="${item}"></h6>-->
+<!--                                <span class="mb-2" th:text="${item}"><br/></span>-->
+<!--                                <p>프로젝트 개발을 위해 Spring 기반의 환경 구축하고 maven 및 gradle 프레임워크 사용</p>-->
+                             </div>
+
+
+
+
+
+<!--                            <div class="card p-3 mb-3">-->
+<!--                                <h3><strong >Back-end</strong></h3>-->
+<!--                                <h6>SpringBoots Framework / JSP, JPA / Java</h6>-->
+<!--                                <span class="mb-2">IDE : Eclipse, IntelliJ<br/>연결DB: Oracle, MySQL, H2, MS-SQL<br/></span>-->
+<!--                                <p>프로젝트 개발을 위해 Spring 기반의 환경 구축하고 maven 및 gradle 프레임워크 사용</p>-->
+<!--                            </div>-->
+<!--                            <div class="card p-3 mb-3">-->
+<!--                                <h3><strong>Database</strong></h3>-->
+<!--                                <h6>Oracle, MySQL, MSSQL, PostgreSQL, SQLite</h6>-->
+<!--                                <span class="mb-2">IDE : DBeaver, MySQL Workbench, Oracle SQLdeveloper<br/></span>-->
+<!--                                <p>JSP의 JDBC, Spring의 Mybatis와 연계하여 DB를 이용해보았으며, DB 환경설정 및 구축을 해보며 스키마 생성, 함수, 제약조건 등-->
+<!--                                    sub-query에 대한 기본 지식 갖춤</p>-->
+<!--                            </div>-->
+<!--                            <div class="card p-3 mb-3">-->
+<!--                                <h3><strong>Machine Learning</strong></h3>-->
+<!--                                <h6>Python, Pandas etc.</h6>-->
+<!--                                <p>IDE : Pycharm, Jupyter Notebook<br/>-->
+<!--                                    Anaconda Jupyter Notebook을 이용하여 크롤링(BeautifulSoup4, requests, lxml, selenium)과 데이터-->
+<!--                                    분석(numpy, pandas, matplotlib, seaborn) 시 사용되는 라이브러리 활용 가능-->
+<!--                                    데이터를 수집하여 EDA 실행 후 시각화도구를 사용. 데이터에 대한 이해도를 바탕으로 분석모델을 설계하고 검증-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <div class="card p-3 mb-3">-->
+<!--                                <h3><strong>Front-end</strong></h3>-->
+<!--                                <h6><strong>HTML, CSS, VanilaJS</strong></h6>-->
+<!--                                <span class="mb-2">IDE : VScode, Atom</span>-->
+<!--                                <p>'카카오톡' 클론코딩을 통해 HTML, CSS, JavaScript의 활용방법을 익히고 Bootstrap을 사용할 줄 알며 개인프로젝트로 Spring-->
+<!--                                    MVC 프로젝트 진행 시 JSP에 JQuery, Ajax, json을 이용했으며 Bootstrap을 활용</p>-->
+<!--                            </div>-->
+                         </div>
+                    </div>
+                </div>
+                <div class="accordion-item ml-5">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            👣 Experience
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="card p-3 ">
+                                <h5><strong>빅데이터 플랫폼 구축(하둡)과 빅데이터분석(by Spark&PowerBi)&자바(JAVA)웹개발</strong></h5>
+                                <span class="mb-2">기간 : 2021.02 ~ 2021.07</span>
+                                <span>더조은아이티아카데미</span>
+                                <p>Spring Framework를 기반으로 요구사항 분석 및 설계부터 개발, 테스트, 배포까지 전반적인 과정을 모두 경험. 또한, 단순히 자바 개발만이
+                                    아닌, UI 개발 기술과 데이터베이스 기술, 개발자간 협업 방법, 다양한 산업체에서 요구하는 기술을 두루 배웠고, 현재 대학편입학 입시 전문교육기관인
+                                    (주)아이비김영의 편입학 입시데이터를 기반으로 2021학년도 편입학 모집정원 및 모의지원 서비스 데이터를 바탕으로 예측 서비스를 웹으로 구현하는 팀
+                                    프로젝트를 진행 중.<br/>
+                                    - Web 시스템(Back, Front, Database)<br/>
+                                    - 빅데이터 분산처리 시스템(Hadoop ecosystem)<br/>
+                                    - 데이터 분석(API, R, Python)</p>
+                            </div>
+                            <div class="card p-3 ">
+                                <h5><strong>K-Digital 신기술 실무인재양성 해커톤</strong></h5>
+                                <span class="mb-2">기간 : 2021.05 ~ 2021.06</span>
+                                <span>주요 역할 : 유관 연구자료 조사, 정보 제작</span>
+                                <p>K-Digital 신기술 실무인재양성 해커톤에 참가하여 '수소경제 활성화'를 주제로 수소차 및 수소충전소에 대한 데이터를 분석하여 수소차 유저들에게
+                                    필요한 정보(충전소 위치, 수소차 지원 정책 등)을 제공하는 웹서비스를 프로토타입까지 개발. 아쉽게도 예선 탈락</p>
+                            </div>
+                            <div class="card p-3 ">
+                                <h5><strong>디지털 신기술 핵심 실무인재양성사업 연계 지식재산 교육 이수</strong></h5>
+                                <span class="mb-2">기간 : 2021.05.29 ~ 2021.06.19 매주 토요일</span>
+                                <span></span>
+                                <p>4회차 교육을 통해 특허와 특허 빅데이터의 기본 개념 및 주요 정보 검색 방법과 R의 이해, 회귀분석 실습, 특허 시각화(Word cloud,
+                                    Heatmap), 기술분류 이해(텍스트 전처리 방안, 군집화 실습), 기술 예측(연관규칙 분석)을 R Studio를 활용하여 교육받음</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+</body>
+</html>
