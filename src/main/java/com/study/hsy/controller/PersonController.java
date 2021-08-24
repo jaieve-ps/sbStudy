@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RequestMapping("/polestar") // 공통url 설정
@@ -21,19 +23,17 @@ public class PersonController {
         Person person = new Person();
         person.setUserName("seoyeon");
         List<String> linkList = new ArrayList<String>();
+        linkList.add("https://github.com/jaieve");
         linkList.add("#");
         linkList.add("#");
-        linkList.add("#");
+
         person.setUserEmail("yoori0303@naver.com");
 
-        person.setIntroduce("기계가 사람을 대체할지도 모른다는 공포감이 점점 커져가면서 대체될 수 없는 존재가 되고 싶어서 '식품생명공학' 전공에서 IT 개발 직군으로 전향한 비전공자입니다.\n" +
-                "폴스타헬스케어에서 개발자 커리어를 시작했고, Java와 Spring-boot를 이용한 서비스를 개발중입니다.\n" +
-                "프로그래밍 공부를 지속하기 위해 1일 1커밋 챌린지를 하고 있고 노션에서 TIL(Today I Learned)를 하고 있습니다.\n" +
-                "요가와 명상을 진심으로 즐기며, 커피 한 잔을 곁들인 책을 읽는 시간을 사랑합니다.\n" +
-                "\n" +
-                "내가 하려고 하는 것은 단지 전진하고 발전하는 것이다.\n" +
-                "Julian Hatfield");
-
+        person.setIntroduce("기계가 사람을 대체할지도 모른다는 공포감이 점점 커져가면서 대체될 수 없는 존재가 되고 싶어서 '식품생명공학' 전공에서 IT 개발 직군으로 전향한 비전공자입니다.<br/>" +
+                "폴스타헬스케어에서 개발자 커리어를 시작했고, Java와 Spring-boot를 이용한 서비스를 개발중입니다.<br/>" +
+                "프로그래밍 공부를 지속하기 위해 1일 1커밋 챌린지를 하고 있고 노션에서 TIL(Today I Learned)를 하고 있습니다.<br/>" +
+                "요가와 명상을 진심으로 즐기며, 커피 한 잔을 곁들인 책을 읽는 시간을 사랑합니다.");
+        person.setFavQuote("<strong>내가 하려고 하는 것은 단지 전진하고 발전하는 것이다.</strong>\n" + "Julian Hatfield");
 
         ArrayList<ArrayList<String>> skillsList = new ArrayList<ArrayList<String>>();
         ArrayList<String> skill = new ArrayList<String>();
@@ -65,8 +65,8 @@ public class PersonController {
                 "'카카오톡' 클론코딩을 통해 HTML, CSS, JavaScript의 활용방법을 익히고 Bootstrap을 사용할 줄 알며 개인프로젝트로 Spring MVC 프로젝트 진행 시 JSP에 JQuery, Ajax, json을 이용했으며 Bootstrap을 활용");
         skillsList.add(skill3);
 
-        ArrayList<ArrayList<String>> expxList = new ArrayList<ArrayList<String>>();
-        ArrayList<String> exp = new ArrayList<String>();
+        Map<String,List<String>> expMap = new HashMap<String, List<String>>();
+        List<String> exp = new ArrayList<String>();
         exp.add("빅데이터 플랫폼 구축(하둡)과 빅데이터분석(by Spark&PowerBi)&자바(JAVA)웹개발");
         exp.add("기간 : 2021.02 ~ 2021.07");
         exp.add("더조은아이티아카데미\n" +
@@ -74,23 +74,25 @@ public class PersonController {
                 "- Web 시스템(Back, Front, Database)\n" +
                 "- 빅데이터 분산처리 시스템(Hadoop ecosystem)\n" +
                 "- 데이터 분석(API, R, Python)");
-        expxList.add(exp);
+        expMap.put("exp1",exp);
 
+        exp.clear();
         exp.add("K-Digital 신기술 실무인재양성 해커톤");
         exp.add("기간 : 2021.05 ~ 2021.06");
         exp.add("주요 역할 : 유관 연구자료 조사, 정보 제작\n" +
                 "K-Digital 신기술 실무인재양성 해커톤에 참가하여 '수소경제 활성화'를 주제로 수소차 및 수소충전소에 대한 데이터를 분석하여 수소차 유저들에게 필요한 정보(충전소 위치, 수소차 지원 정책 등)을 제공하는 웹서비스를 프로토타입까지 개발. 아쉽게도 예선 탈락");
-        expxList.add(exp);
+        expMap.put("exp2",exp);
 
+        exp.clear();
         exp.add("디지털 신기술 핵심 실무인재양성사업 연계 지식재산 교육 이수");
         exp.add("기간 : 2021.05.29 ~ 2021.06.19 매주 토요일");
         exp.add("4회차 교육을 통해 특허와 특허 빅데이터의 기본 개념 및 주요 정보 검색 방법과 R의 이해, 회귀분석 실습, 특허 시각화(Word cloud, Heatmap), 기술분류 이해(텍스트 전처리 방안, 군집화 실습), 기술 예측(연관규칙 분석)을 R Studio를 활용하여 교육받음");
-        expxList.add(exp);
+        expMap.put("exp3",exp);
 
         model.addAttribute("person", person);
-        model.addAttribute("skillsList", skillsList);
-        model.addAttribute("expxList", expxList);
         model.addAttribute("linkList", linkList);
+        model.addAttribute("skillsList", skillsList);
+        model.addAttribute("expMap", expMap);
 
         return "index2";
     }
