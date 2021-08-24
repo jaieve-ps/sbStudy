@@ -5,14 +5,6 @@ public class Person {
     private String userEmail;
     private String introduce;
     private String favQuote;
-//    private String portfolioLink;
-//    private String skillCategory;
-//    private String skillName;
-//    private String skiilDetail;
-//    private String experienceTitle;
-//    private String experienceContent;
-//    private String experienceData;
-
 
     public String getUserName() {
         return userName;
