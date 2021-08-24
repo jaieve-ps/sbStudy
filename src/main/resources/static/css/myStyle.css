@@ -1,0 +1,35 @@
+.portfolio-link:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.portfolio-link:visited {
+  color: grey;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.portfolio-link:hover {
+  color: #585AE3;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.portfolio-link:active {
+  color: #0F12CC;
+  background-color: transparent;
+  text-decoration: underline;
+}
+main{
+    height: 110%;
+}
+.row {
+    justify-content: center;
+}
+.profile-box{
+    width : revert;
+    box
+    display:flex;
+    text-align:center;
+}
