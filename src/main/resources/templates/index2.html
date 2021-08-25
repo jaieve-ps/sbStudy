@@ -104,12 +104,12 @@
                     <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
                          data-bs-parent="#accordionExample">
                         <div class="accordion-body">
-                            <div class="card p-3 mb-3" th:each="entry:${expMap.entrySet()}">
-                                <p th:text="${entry.getKey()}"></p>
-                                <h5><strong th:utext="${entry.getValue().get(0)}"></strong></h5>
-                                <span class="mb-2" th:utext="${entry.getValue().get(1)}"></span>
-                                <span th:utext="${entry.getValue().get(2)}"></span>
-                                <p th:utext="${entry.getValue().get(3)}"></p>
+                            <div class="card p-3 mb-3" th:each="exp:${experienceList}">
+<!--                                <p th:text="${entry.getKey()}"></p>-->
+                                <h5><strong th:utext="${exp.getExpTitle()}"></strong></h5>
+                                <span class="mb-2" th:utext="${exp.getExpDate()}"></span>
+                                <span th:utext="${exp.getExpInfo()}"></span>
+                                <p th:utext="${exp.getExpContent()}"></p>
                             </div>
                         </div>
                     </div>
