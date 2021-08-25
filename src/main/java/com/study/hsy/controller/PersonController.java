@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -16,7 +17,6 @@ import java.util.Map;
 @Controller
 @RequestMapping("/polestar") // 공통url 설정
 public class PersonController {
-
 
     @GetMapping
     public String getUserinfo(Model model) {
@@ -99,4 +99,23 @@ public class PersonController {
 
         return "index2";
     }
+
+    @ResponseBody // 현재 리턴타입을 제이슨으로 변환해준다 object to json. 추후 RequestBody는 Json to Object (null을 허용하지 않음 error 401)
+    @GetMapping("/resume")
+    public Person getPerson() {
+        Person person = new Person();
+        person.setUserName("seoyeon");
+
+
+        person.setUserEmail("yoori0303@naver.com");
+
+        person.setIntroduce("기계가 사람을 대체할지도 모른다는 공포감이 점점 커져가면서 대체될 수 없는 존재가 되고 싶어서 '식품생명공학' 전공에서 IT 개발 직군으로 전향한 비전공자입니다.<br/>" +
+                "폴스타헬스케어에서 개발자 커리어를 시작했고, Java와 Spring-boot를 이용한 서비스를 개발중입니다.<br/>" +
+                "프로그래밍 공부를 지속하기 위해 1일 1커밋 챌린지를 하고 있고 노션에서 TIL(Today I Learned)를 하고 있습니다.<br/>" +
+                "요가와 명상을 진심으로 즐기며, 커피 한 잔을 곁들인 책을 읽는 시간을 사랑합니다.");
+        person.setFavQuote("<strong>내가 하려고 하는 것은 단지 전진하고 발전하는 것이다.</strong>\n" + "Julian Hatfield");
+
+        return person;
+    }
+
 }

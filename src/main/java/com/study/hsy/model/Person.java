@@ -1,6 +1,8 @@
 package com.study.hsy.model;
 
+
 public class Person {
+
     private String userName;
     private String userEmail;
     private String introduce;
