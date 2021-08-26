@@ -1,0 +1,15 @@
+create table skill(
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  category VARCHAR(100) NOT NULL,
+  stack VARCHAR(100) NOT NULL,
+  tool VARCHAR(100) NOT NULL,
+  detail VARCHAR(500) NOT NULL
+);
+
+select * from skill;
+
+insert into skill (category, stack, tool, detail)
+values ('Back-end','pringBoots Framework / JSP, JPA / Java','Eclipse, IntelliJ<br/>연결DB: Oracle, MySQL, H2, MS-SQL<br/>','프로젝트 개발을 위해 Spring 기반의 환경 구축하고 maven 및 gradle 프레임워크 사용'),
+ ('Database','Oracle, MySQL, MSSQL, PostgreSQL, SQLite','DBeaver, MySQL Workbench, Oracle SQLdeveloper<br/>','JSP의 JDBC, Spring의 Mybatis와 연계하여 DB를 이용해보았으며, DB 환경설정 및 구축을 해보며 스키마 생성, 함수, 제약조건 등 sub-query에 대한 기본 지식 갖춤'),
+ ('Machine Learning','Python, Pandas etc.','Pycharm, Jupyter Notebook<br/>','Anaconda Jupyter Notebook을 이용하여 크롤링(BeautifulSoup4, requests, lxml, selenium)과 데이터 분석(numpy, pandas, matplotlib, seaborn) 시 사용되는 라이브러리 활용 가능 데이터를 수집하여 EDA 실행 후 시각화도구를 사용. 데이터에 대한 이해도를 바탕으로 분석모델을 설계하고 검증'),
+ ('Front-end','HTML, CSS, VanilaJS','VScode, Atom<br/>','카카오톡 클론코딩을 통해 HTML, CSS, JavaScript의 활용방법을 익히고 Bootstrap을 사용할 줄 알며 개인프로젝트로 Spring MVC 프로젝트 진행 시 JSP에 JQuery, Ajax, json을 이용했으며 Bootstrap을 활용');

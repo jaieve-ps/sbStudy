@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/handlebars/handlebars-v4.7.7-com-run.js"></script>
+    <!-- Custom styles for this template -->
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <title>Portfolio For Handlebar</title>
+</head>
+<body class="d-flex flex-column h-100" data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed="">
+
+<header>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="#">Portfolio For Handlebar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#">Toy Project</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+    <div class="container container-lg">
+        <h1 class="my-5 pt-3">🖥 Resume</h1>
+        <div class="row d-xl-flex justify-content-center">
+            <!-- Profile boc Start-->
+            <div id="templateAppend" class="col-xl-3 mb-5 profile-box d-flex justify-content-center">
+                <script id="template-profile" type="text/x-handlebars-template">
+                    <div class="card d-flex mx-3 justify-content-center" style="width: 60%;">
+                        <img src="/image/profile.png" class="card-img-top" alt="이미지 사진">
+                        <div class="card-body text-center">
+                            <h3 class="card-text text-uppercase text-center">{{userName}}</h3>
+                            <span><strong>Link&nbsp;</strong>
+                            </span><br/>
+                            <span><strong>Email&nbsp;</strong>{{userEmail}}</span>
+                            <!-- Button trigger modal -->
+                            <button type="button" id="popup-btn" class="btn btn-primary my-3" data-toggle="modal"
+                                    data-target="#exampleModal">
+                                More Info
+                            </button>
+                        </div>
+                    </div>
+                </script>
+            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">More Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <!--                            <input type="text" id="test" th:value="${person.userName}"/>-->
+                            <span>My name is <strong id="userName"></strong> and my Email is <span
+                                    id="userEmail"></span></span>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal end -->
+            <!-- Profile boc End -->
+            <!-- accordion Start-->
+            <div class="accordion col-xl-9 mb-5 " id="accordionExample">
+                <div class="accordion-item ml-5">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            📄 Introduce
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <p th:utext="${person.introduce}"></p>
+                            <div class="card p-3 text-center" th:utext="${person.favQuote}"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item ml-5">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            👨🏻‍💻 Used Skill
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="card p-3 mb-3" th:each="category : ${skillMap.keySet()}">
+                                <h3><strong th:text="${category}"></strong></h3>
+                                <h6 th:utext="${skillMap.get(category).get('stack')}"></h6>
+                                <span class="mb-2"
+                                      th:utext="'IDE : ' + ${skillMap.get(category).get('tool')}"><br/></span>
+                                <p th:utext="${skillMap.get(category).get('detail')}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item ml-5">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            👣 Experience
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            <div class="card p-3 mb-3" th:each="exp:${experienceList}">
+                                <!--                                <p th:text="${entry.getKey()}"></p>-->
+                                <h5><strong th:utext="${exp.getExpTitle()}"></strong></h5>
+                                <span class="mb-2" th:utext="${exp.getExpDate()}"></span>
+                                <span th:utext="${exp.getExpInfo()}"></span>
+                                <p th:utext="${exp.getExpContent()}"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript" src="/js/modal.js"></script>
+<script type="text/javascript" src="/js/profileHandle.js"></script>
+</body>
+</html>

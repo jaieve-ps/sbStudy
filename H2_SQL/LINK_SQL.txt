@@ -1,0 +1,10 @@
+CREATE TABLE link(
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  domain VARCHAR(20) NOT NULL,
+  url VARCHAR(100) NOT NULL
+);
+
+select * from link;
+
+insert into link (domain, url)
+values ('Github','https://github.com/jaieve'),('Tistory','https://rimooworld.tistory.com/'),('Notion','https://jaieve.notion.site/Polestar-HC-214e38d7c5c649d49cb8303f5dc0f8ca');

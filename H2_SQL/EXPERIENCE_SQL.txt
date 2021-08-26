@@ -1,0 +1,23 @@
+CREATE TABLE experience(
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  title VARCHAR(100) NOT NULL,
+  date VARCHAR(100) NOT NULL,
+  info VARCHAR(100) NOT NULL,
+  content VARCHAR(500) NOT NULL
+);
+
+
+select * frmo experience;
+
+
+insert into experience (title, date, info, content)
+values ('빅데이터 플랫폼 구축(하둡)과 빅데이터분석(by Spark&PowerBi)&자바(JAVA)웹개발',
+'기간 : 2021.02 ~ 2021.07',
+'더조은아이티아카데미','Spring Framework를 기반으로 요구사항 분석 및 설계부터 개발, 테스트, 배포까지 전반적인 과정을 모두 경험. 또한, 단순히 자바 개발만이 아닌, UI 개발 기술과 데이터베이스 기술, 개발자간 협업 방법, 다양한 산업체에서 요구하는 기술을 두루 배웠고, 현재 대학편입학 입시 전문교육기관인 (주)아이비김영의 편입학 입시데이터를 기반으로 2021학년도 편입학 모집정원 및 모의지원 서비스 데이터를 바탕으로 예측 서비스를 웹으로 구현하는 팀 프로젝트를 진행 중.<br/> - Web 시스템(Back, Front, Database)<br/> - 빅데이터 분산처리 시스템(Hadoop ecosystem)<br/> - 데이터 분석(API, R, Python)');
+
+insert into experience (title, date, info, content)
+VALUES ('K-Digital 신기술 실무인재양성 해커톤','기간 : 2021.05 ~ 2021.06','주요 역할 : 유관 연구자료 조사, 정보 제작','K-Digital 신기술 실무인재양성 해커톤에 참가하여 수소경제 활성화를 주제로 수소차 및 수소충전소에 대한 데이터를 분석하여 수소차 유저들에게 필요한 정보(충전소 위치, 수소차 지원 정책 등)을 제공하는 웹서비스를 프로토타입까지 개발. 아쉽게도 예선 탈락');
+
+insert into experience (title, date, info, content) values
+('디지털 신기술 핵심 실무인재양성사업 연계 지식재산 교육 이수','기간 : 2021.05.29 ~ 2021.06.19 매주 토요일','','4회차 교육을 통해 특허와 특허 빅데이터의 기본 개념 및 주요 정보 검색 방법과 R의 이해, 회귀분석 실습, 특허 시각화(Word cloud, Heatmap), 기술분류 이해(텍스트 전처리 방안, 군집화 실습), 기술 예측(연관규칙 분석)을 R Studio를 활용하여 교육받음');
+

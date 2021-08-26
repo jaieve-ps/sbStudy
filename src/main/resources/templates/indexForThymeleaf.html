@@ -5,16 +5,17 @@
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
     <script type="text/javascript" src="/bootstrap/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/javascript" src="/js/modal.js"></script>
+    <script type="text/x-handlebars-template" src="/js/handlebars/handlebars-v4.7.7-com-run.js"></script>
     <!-- Custom styles for this template -->
     <link type="text/css" rel="stylesheet" href="/css/main.css"/>
-    <title>Portfolio</title>
+    <title>Portfolio for Thymeleaf</title>
 </head>
 <body class="d-flex flex-column h-100" data-new-gr-c-s-check-loaded="14.1026.0" data-gr-ext-installed="">
 
 <header>
     <!-- Fixed navbar -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Portfolio</a>
+        <a class="navbar-brand" href="#">Portfolio for Thymeleaf</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -69,7 +70,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <input type="text" id="test" th:value="${person.userName}"/>
+<!--                            <input type="text" id="test" th:value="${person.userName}"/>-->
+                            <span>My name is <strong id="userName"></strong> and my Email is <span id="userEmail"></span></span>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

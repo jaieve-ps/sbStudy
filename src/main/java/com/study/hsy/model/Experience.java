@@ -1,47 +1,50 @@
 package com.study.hsy.model;
 
 public class Experience {
-    private String expTitle;
-    private String expDate;
-    private String expInfo;
-    private String expContent;
+    private String title;
+    private String date;
+    private String info;
+    private String content;
 
-    public String getExpTitle() {
-        return expTitle;
+    public Experience() {
     }
 
-    public Experience(String expTitle, String expDate, String expInfo, String expContent) {
-        this.expTitle = expTitle;
-        this.expDate = expDate;
-        this.expInfo = expInfo;
-        this.expContent = expContent;
+    public Experience(String title, String date, String info, String content) {
+        this.title = title;
+        this.date = date;
+        this.info = info;
+        this.content = content;
     }
 
-    public void setExpTitle(String expTitle) {
-        this.expTitle = expTitle;
+    public String getTitle() {
+        return title;
     }
 
-    public String getExpDate() {
-        return expDate;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setExpDate(String expDate) {
-        this.expDate = expDate;
+    public String getDate() {
+        return date;
     }
 
-    public String getExpInfo() {
-        return expInfo;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public void setExpInfo(String expInfo) {
-        this.expInfo = expInfo;
+    public String getInfo() {
+        return info;
     }
 
-    public String getExpContent() {
-        return expContent;
+    public void setInfo(String info) {
+        this.info = info;
     }
 
-    public void setExpContent(String expContent) {
-        this.expContent = expContent;
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
     }
 }

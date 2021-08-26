@@ -1,0 +1,17 @@
+CREATE TABLE PERSON(
+  id INT AUTO_INCREMENT  PRIMARY KEY,
+  name VARCHAR(250) NOT NULL,
+  email VARCHAR(100) NOT NULL,
+  introduce VARCHAR(500) NOT NULL,
+  favquote VARCHAR(200) NOT NULL,
+  religion VARCHAR(20) NOT NULL
+);
+
+
+select * frmo person;
+
+insert into person (name, email, introduce, favquote, religion)
+values ('seoyeon', 'jaieve1469@naver.com',
+ '프로그래밍 공부를 지속하기 위해 1일 1커밋 챌린지를 하고 있고 노션에서 TIL(Today I Learned)를 하고 있습니다.<br/>요가와 명상을 진심으로 즐기며, 커피 한 잔을 곁들인 책을 읽는 시간을 사랑합니다.',
+ '내가 하려고 하는 것은 단지 전진하고 발전하는 것이다.<br/>Julican Hatfield', 'Protestantism');
+

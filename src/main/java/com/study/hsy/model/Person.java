@@ -4,11 +4,11 @@ import lombok.Data;
 
 public class Person {
     private Long id;
-    private String userName;
-    private String userEmail;
+    private String name;
+    private String email;
     private String introduce;
     private String favQuote;
-
+    private String religion;
 
     public Person() {
     }
@@ -21,20 +21,20 @@ public class Person {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getUserEmail() {
-        return userEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserEmail(String userEmail) {
-        this.userEmail = userEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getIntroduce() {
@@ -51,5 +51,13 @@ public class Person {
 
     public void setFavQuote(String favQuote) {
         this.favQuote = favQuote;
+    }
+
+    public String getReligion() {
+        return religion;
+    }
+
+    public void setFeligion(String religion) {
+        this.religion = religion;
     }
 }
