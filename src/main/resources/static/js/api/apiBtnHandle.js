@@ -1,9 +1,9 @@
 $(document).ready(function(){
     console.log("introduceHandle 실행");
-    const parentHtmlTag = document.querySelector('#collapseOne');
+    const parentHtmlTag = document.querySelector('#modal-location');
     const apiBtn = document.querySelector('#apiBtn');
 
-    const source = $('#template-introduce').html();
+    const source = $('#template-modal').html();
     const template = Handlebars.compile(source);
 
     function getIntroduce(){
@@ -14,11 +14,11 @@ $(document).ready(function(){
             data: {id:1}
         }).done(function(result){
             const getData = {
-                introduce : result.introduce,
+                religion : result.religion,
                 favQuote : result.favQuote
             };
             html = template(getData);
-            $('#collapseOne').html(html);
+            $('#modal-location').html(html);
         }).fail(function(xhr, error, status) {
             console.log(xhr);
         });
@@ -27,6 +27,5 @@ $(document).ready(function(){
         // 4. 상위 태그에 삽입 (append)
 
     }
-
     apiBtn.addEventListener('click', getIntroduce);
 });

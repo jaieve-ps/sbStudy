@@ -86,9 +86,12 @@
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body">
+                        <div class="modal-body" id="modal-location">
+                            <script id="template-modal" type="text/x-handlebars-template">
                                 <span><strong>종교</strong> {{religion}}<span>
+                                    <!-- TODO 보기좋은 부트스트랩으로 바꾸기-->
                                 <div class="card p-3 text-center">{{favQuote}}</div>
+                            </script>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -171,7 +174,7 @@
 </html>
 <!-- script file-->
 <script type="text/javascript" src="/js/profileHandle.js"></script>
-<script type="text/javascript" src="/js/introduceHandle.js"></script>
+<script type="text/javascript" src="/js/api/apiBtnHandle.js"></script>
 <script type="text/javascript" src="/js/api/introduceApiHandle.js"></script>
 <script type="text/javascript" src="/js/api/linkApiHandle.js"></script>
 <script type="text/javascript" src="/js/api/modalApiHandle.js"></script>
