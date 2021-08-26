@@ -2,6 +2,7 @@ package com.study.hsy.controller;
 
 import com.study.hsy.model.Link;
 import com.study.hsy.model.Person;
+import com.study.hsy.service.LinkService;
 import com.study.hsy.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @RequestMapping("/api")
 @RestController // 모든 맵핑이 리스판스바디로 적용된다 = object to json 각 함수에 @ResponseBody 안붙여줘도 됨.
@@ -17,6 +19,8 @@ public class ApiController {
 
     @Autowired
     PersonService personService;
+    @Autowired
+    LinkService linkService;
 
     @GetMapping("/person")
     public Person getPerson(@RequestParam Long id) {
@@ -29,9 +33,11 @@ public class ApiController {
     }
 
     @GetMapping("/link")
-    public List<Link> getLinkList(){
-        return null;
-        // TODO LinkService.getLinkList() 값 넘기기
+    public Map<Long, List<Link>> getLinkList(){
+        // List -> Map
+        List<Link> linkList =linkService.getLinkList();
+        Map<Long, List<Link>> linkMap = linkList.stream().collect(Collectors.groupingBy(Link::getId));
+        return linkMap;
     }
 
     @GetMapping("/skillList")

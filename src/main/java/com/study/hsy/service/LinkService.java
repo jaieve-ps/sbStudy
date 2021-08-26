@@ -12,10 +12,9 @@ import java.util.List;
 public class LinkService {
 
     LinkMapper linkMapper;
-
     public LinkService(LinkMapper linkMapper) {
         this.linkMapper = linkMapper;
     }
 
-    public List<Link> getLinkList() { return linkMapper.getLinkList()}
+    public List<Link> getLinkList() { return linkMapper.getLinkList();}
 }

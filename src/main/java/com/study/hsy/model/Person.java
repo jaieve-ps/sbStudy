@@ -1,7 +1,5 @@
 package com.study.hsy.model;
 
-import lombok.Data;
-
 public class Person {
     private Long id;
     private String name;
@@ -57,7 +55,7 @@ public class Person {
         return religion;
     }
 
-    public void setFeligion(String religion) {
+    public void setReligion(String religion) {
         this.religion = religion;
     }
 }

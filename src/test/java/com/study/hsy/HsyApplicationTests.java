@@ -23,7 +23,7 @@ class HsyApplicationTests {
 	void test1() {
 		List<Person> personList = personService.findAll();
 		for(Person person: personList){
-			System.out.println("person : " + person.getUserName());
+			System.out.println("person : " + person.getName());
 		}
 	}
 

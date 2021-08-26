@@ -2,8 +2,9 @@
 $(document).ready(function(){
     console.log("profileHandle 실행");
     const source = $('#template-profile').html();
-    const template = Handlebars.compile(source);
 
+    const template = Handlebars.compile(source);
+    // Person 정보 api로 가져오기
     $.ajax({
         url: "/api/person",
         type: "GET",
@@ -11,10 +12,10 @@ $(document).ready(function(){
     }).done(function(result){
         const data = {
             name : result.name,
-            email : result.email,
+            email : result.email
         }
         const html = template(data);
-        $('#templateAppend').append(html);
+        $('#templateProfileAppend').append(html);
     }).fail(function(xhr, error, status) {
         console.log(xhr);
     });

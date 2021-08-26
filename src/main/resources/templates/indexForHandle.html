@@ -2,8 +2,13 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- bootstrap JS -->
     <script type="text/javascript" src="/bootstrap/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Handlebars.js -->
     <script type="text/javascript" src="/js/handlebars/handlebars-v4.7.7-com-run.js"></script>
     <!-- Custom styles for this template -->
     <link type="text/css" rel="stylesheet" href="/css/main.css"/>
@@ -42,24 +47,32 @@
         <h1 class="my-5 pt-5" id="pageTitle">🖥 Resume </h1>
         <div class="row d-xl-flex justify-content-center">
             <!-- Profile boc Start-->
-            <div id="templateAppend" class="col-xl-3 mb-5 profile-box d-flex justify-content-center">
-                <script id="template-profile" type="text/x-handlebars-template">
-                    <div class="card d-flex mx-3 justify-content-center" style="width: 60%;">
-                        <img src="/image/profile.png" class="card-img-top" alt="이미지 사진">
-                        <div class="card-body text-center">
+            <div class="col-xl-3 mb-5 profile-box d-flex justify-content-center">
+                <div class="card d-flex mx-3 justify-content-center" style="width: 60%;">
+                    <img src="/image/profile.png" class="card-img-top" alt="이미지 사진">
+                    <div id="templateProfileAppend" class="card-body text-center">
+                        <script id="template-profile" type="text/x-handlebars-template">
                             <h3 class="card-text text-uppercase text-center">{{name}}</h3>
-                            <span><strong>Link&nbsp;</strong> <!--TODO api버튼 클릭시 데이터 받아서 핸들바로 넣어주기-->
-                            </span><br/>
                             <span><strong>Email&nbsp;</strong>{{email}}</span>
+                        </script>
+                        <script id="template-link" type="text/x-handlebars-template">
+                            <span><strong>Link&nbsp;</strong>
+                                {{#linklist}}
+                                <a href="{{@url}}">{{@domain}} link1</a>
+                                {{/linklist}}
+                            </span>
+                        </script>
+                        <!-- TODO linkApiHandle.js에서 api로 받은 data가 화면에 출력되지 않는 문제 해결해야 함-->
+                        <script id="template-modalBtn" type="text/x-handlebars-template">
+                            <br/>
                             <!-- Button trigger modal -->
                             <button type="button" id="popupBtn" class="btn btn-primary my-3" data-toggle="modal"
                                     data-target="#exampleModal">
                                 More Info
                             </button>
-
-                        </div>
+                        </script>
                     </div>
-                </script>
+                </div>
 
             </div>
             <!-- Modal -->
@@ -94,7 +107,7 @@
                             📄 Introduce
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show introduceParent" aria-labelledby="headingOne"
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
                          data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <p>introduce</p>
@@ -115,7 +128,7 @@
                             👨🏻‍💻 Used Skill
                         </button>
                     </h2>
-                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                    <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
                          data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div class="card p-3 mb-3" th:each="category : ${skillMap.keySet()}">
@@ -131,11 +144,13 @@
                 <div class="accordion-item ml-5">
                     <h2 class="accordion-header" id="headingThree">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                data-bs-target="#collapseThree" aria-expanded="false"
+                                aria-controls="collapseThree">
                             👣 Experience
                         </button>
                     </h2>
-                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                    <div id="collapseThree" class="accordion-collapse collapse show"
+                         aria-labelledby="headingThree"
                          data-bs-parent="#accordionExample">
                         <div class="accordion-body">
                             <div class="card p-3 mb-3" th:each="exp:${experienceList}">
@@ -153,9 +168,10 @@
     </div>
 </main>
 </body>
-<script type="text/javascript" src="/js/modalHandle.js"></script>
+</html>
+<!-- script file-->
 <script type="text/javascript" src="/js/profileHandle.js"></script>
 <script type="text/javascript" src="/js/introduceHandle.js"></script>
-<script type="text/javascript" src="/js/api/apiTest.js"></script>
-
-</html>
+<script type="text/javascript" src="/js/api/introduceApiHandle.js"></script>
+<script type="text/javascript" src="/js/api/linkApiHandle.js"></script>
+<script type="text/javascript" src="/js/api/modalApiHandle.js"></script>

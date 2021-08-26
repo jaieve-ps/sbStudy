@@ -1,6 +1,6 @@
 $(document).ready(function(){
     console.log("modalAPI.js 실행");
-
+    // TODO linkApuHandle 참고해서 코드 완성하기(가져올 데이터는 Person의 religion과 favQoute)
     $("#popup-btn").on("click", function(){
         console.log("버튼 클릭")
         $.ajax({
