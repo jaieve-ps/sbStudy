@@ -1,5 +1,6 @@
 package com.study.hsy.model;
 
+import lombok.Data;
 
 public class Person {
     private Long id;
@@ -7,6 +8,10 @@ public class Person {
     private String userEmail;
     private String introduce;
     private String favQuote;
+
+
+    public Person() {
+    }
 
     public Long getId() {
         return id;

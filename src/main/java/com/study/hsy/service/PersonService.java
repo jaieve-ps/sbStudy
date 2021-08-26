@@ -10,10 +10,17 @@ import java.util.Map;
 
 @Service
 public class PersonService {
-    @Autowired
-    private PersonMapper personMapper;
+    PersonMapper personMapper;
 
-    public Person findAll() {
+    public PersonService(PersonMapper personMapper){
+        this.personMapper = personMapper;
+    }
+
+    public List<Person> findAll() {
         return personMapper.findAll();
+    }
+
+    public Person getPerson(Long id) {
+        return personMapper.getPerson(id);
     }
 }

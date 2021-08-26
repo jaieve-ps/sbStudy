@@ -15,7 +15,7 @@ import java.util.Map;
 public class ApiController {
 
     @Autowired
-    private PersonService personService;
+    PersonService personService;
 
     @GetMapping("/person")
     public Person getPerson() {
@@ -29,11 +29,11 @@ public class ApiController {
     }
 
     @GetMapping("/users")
-    public Person getPersons(){
-        Person person = new Person();
-        System.out.println(person);
-        person = personService.findAll();
+    public List<Person> getPersons(){
+        System.out.println(personService.findAll());
 
-        return person;
+        return personService.findAll();
     }
+
+
 }

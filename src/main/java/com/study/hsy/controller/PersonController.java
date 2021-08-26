@@ -17,7 +17,7 @@ import java.util.Map;
 @RequestMapping("/polestar") // 공통url 설정
 public class PersonController {
 
-    @GetMapping
+    @GetMapping("/main")
     public String getUserinfo(Model model) {
         Person person = new Person();
         person.setUserName("seoyeon");
