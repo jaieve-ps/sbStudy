@@ -2,10 +2,9 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-            crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/bootstrap/bootstrap-5.1.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+    <script type="text/javascript" src="/js/modal.js"></script>
     <!-- Custom styles for this template -->
     <link type="text/css" rel="stylesheet" href="/css/main.css"/>
     <title>Portfolio</title>
@@ -38,8 +37,6 @@
 
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
-
-
     <div class="container container-lg">
         <h1 class="my-5 pt-3">🖥 Resume</h1>
         <div class="row d-xl-flex justify-content-cente">
@@ -54,9 +51,33 @@
                                th:utext="${key} + ' '"></a>&nbsp;
                         </span><br/>
                         <span th:utext="'<strong>Email&nbsp;</strong>' + ${person.userEmail}"></span>
+                        <!-- Button trigger modal -->
+                        <button type="button" id="popup-btn" class="btn btn-primary my-3" data-toggle="modal" data-target="#exampleModal">
+                            More Info
+                        </button>
                     </div>
                 </div>
             </div>
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">More Information</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <input type="text" id="test" th:value="${person.userName}"/>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal end -->
             <!-- Profile boc End -->
             <!-- accordion Start-->
             <div class="accordion col-xl-9 mb-5 " id="accordionExample">
@@ -117,6 +138,7 @@
             </div>
         </div>
     </div>
+
 </main>
 </body>
 </html>

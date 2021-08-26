@@ -1,6 +1,7 @@
-server:
-    port: 8099
-spring
+mybatis:
+    type-aliases-package: com.study.hsy.model
+    mapper-locations: /mybatis/mappers/*.xml
+spring:
     h2:
         console:
             enable: true

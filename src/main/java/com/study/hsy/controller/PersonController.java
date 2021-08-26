@@ -1,14 +1,13 @@
 package com.study.hsy.controller;
 
-import com.study.hsy.model.Experience;
 import com.study.hsy.model.Person;
+import com.study.hsy.model.Experience;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

@@ -2,11 +2,19 @@ package com.study.hsy.model;
 
 
 public class Person {
-
+    private Long id;
     private String userName;
     private String userEmail;
     private String introduce;
     private String favQuote;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getUserName() {
         return userName;

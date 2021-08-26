@@ -1,4 +1,4 @@
-package com.study.hsy.controller.api;
+package com.study.hsy.controller;
 
 import com.study.hsy.model.Person;
 import com.study.hsy.service.PersonService;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("/apitest")
+@RequestMapping("/api")
 @RestController // 모든 맵핑이 리스판스바디로 적용된다 = object to json
 public class ApiController {
 
@@ -29,8 +29,11 @@ public class ApiController {
     }
 
     @GetMapping("/users")
-    public List<Map<String, Object>> getPersons(){
-       return personService.findAll();
-    }
+    public Person getPersons(){
+        Person person = new Person();
+        System.out.println(person);
+        person = personService.findAll();
 
+        return person;
+    }
 }
