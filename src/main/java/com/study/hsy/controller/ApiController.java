@@ -1,5 +1,6 @@
 package com.study.hsy.controller;
 
+import com.study.hsy.model.Link;
 import com.study.hsy.model.Person;
 import com.study.hsy.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,12 @@ public class ApiController {
     @GetMapping("/personList")
     public List<Person> findAll(){
         return personService.findAll();
+    }
+
+    @GetMapping("/link")
+    public List<Link> getLinkList(){
+        return null;
+        // TODO LinkService.getLinkList() 값 넘기기
     }
 
     @GetMapping("/skillList")
