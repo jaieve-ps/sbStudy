@@ -1,22 +1,24 @@
 // 이 파일을 받는 곳에서 이 파일이 받아지기 전에 핸들바를 임포트했다면 js파읾안에서는 임포트하지 않아도 된다.
 $(document).ready(function(){
+    console.log("profileHandle 실행");
     const source = $('#template-profile').html();
-    const data = {
-        name : "handle",
-        email : "handle@gmail.com"
-    }
-
-    const html = template(data);
-
-    $('#templateAppend').append(html);
+    const template = Handlebars.compile(source);
 
     $.ajax({
-        url: "/polestar/skillMap",
+        url: "/api/person",
         type: "GET",
-        // Accept: "application/json" // request할 때 값 특정 형태의 값만 받고자 할 때 설정
+        data: {id:1}
     }).done(function(result){
-        console.dir(result);
-   //   $('#test').val(jsonData.userEmail); //input tag
+//        console.table(result);
+        const data = {
+            name : result.name,
+            email : result.email,
+//            favQuote : result.favQuote,
+//            religion : result.religion
+        }
+
+        const html = template(data);
+        $('#templateAppend').append(html);
     }).fail(function(xhr, error, status) {
         console.log(xhr);
     });

@@ -1,9 +1,6 @@
-function print() {
-    console.log("확인");
-}
-
 $(document).ready(function(){
-    print();
+    console.log("modalAPI.js 실행");
+
     $("#popup-btn").on("click", function(){
         console.log("버튼 클릭")
         $.ajax({
@@ -19,6 +16,4 @@ $(document).ready(function(){
             console.log(xhr);
         });
     });
-
-
 });

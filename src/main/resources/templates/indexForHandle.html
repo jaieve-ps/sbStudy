@@ -31,6 +31,7 @@
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
+            <button id="apiBtn" class="btn btn-secondary my-3 text-uppercase">api test</button>
         </div>
     </nav>
 </header>
@@ -38,7 +39,7 @@
 <!-- Begin page content -->
 <main role="main" class="flex-shrink-0">
     <div class="container container-lg">
-        <h1 class="my-5 pt-3">🖥 Resume</h1>
+        <h1 class="my-5 pt-5" id="pageTitle">🖥 Resume </h1>
         <div class="row d-xl-flex justify-content-center">
             <!-- Profile boc Start-->
             <div id="templateAppend" class="col-xl-3 mb-5 profile-box d-flex justify-content-center">
@@ -46,18 +47,20 @@
                     <div class="card d-flex mx-3 justify-content-center" style="width: 60%;">
                         <img src="/image/profile.png" class="card-img-top" alt="이미지 사진">
                         <div class="card-body text-center">
-                            <h3 class="card-text text-uppercase text-center">{{userName}}</h3>
+                            <h3 class="card-text text-uppercase text-center">{{name}}</h3>
                             <span><strong>Link&nbsp;</strong>
                             </span><br/>
-                            <span><strong>Email&nbsp;</strong>{{userEmail}}</span>
+                            <span><strong>Email&nbsp;</strong>{{email}}</span>
                             <!-- Button trigger modal -->
-                            <button type="button" id="popup-btn" class="btn btn-primary my-3" data-toggle="modal"
+                            <button type="button" id="popupBtn" class="btn btn-primary my-3" data-toggle="modal"
                                     data-target="#exampleModal">
                                 More Info
                             </button>
+
                         </div>
                     </div>
                 </script>
+
             </div>
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -71,9 +74,8 @@
                             </button>
                         </div>
                         <div class="modal-body">
-                            <!--                            <input type="text" id="test" th:value="${person.userName}"/>-->
-                            <span>My name is <strong id="userName"></strong> and my Email is <span
-                                    id="userEmail"></span></span>
+                                <span><strong>종교</strong> {{religion}}<span>
+                                <div class="card p-3 text-center">{{favQuote}}</div>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -92,12 +94,14 @@
                             📄 Introduce
                         </button>
                     </h2>
-                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                    <div id="collapseOne" class="accordion-collapse collapse show introduceParent" aria-labelledby="headingOne"
                          data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <p th:utext="${person.introduce}"></p>
-                            <div class="card p-3 text-center" th:utext="${person.favQuote}"></div>
-                        </div>
+                        <script id="template-introduce" type="text/x-handlebars-template">
+                            <div class="accordion-body">
+                                <p>{{introduce}}</p>
+                                <div class="card p-3 text-center">{{favQoute}}</div>
+                            </div>
+                        </script>
                     </div>
                 </div>
                 <div class="accordion-item ml-5">
@@ -132,10 +136,10 @@
                         <div class="accordion-body">
                             <div class="card p-3 mb-3" th:each="exp:${experienceList}">
                                 <!--                                <p th:text="${entry.getKey()}"></p>-->
-                                <h5><strong th:utext="${exp.getExpTitle()}"></strong></h5>
-                                <span class="mb-2" th:utext="${exp.getExpDate()}"></span>
-                                <span th:utext="${exp.getExpInfo()}"></span>
-                                <p th:utext="${exp.getExpContent()}"></p>
+                                <h5><strong th:utext="${exp.getTitle()}"></strong></h5>
+                                <span class="mb-2" th:utext="${exp.getDate()}"></span>
+                                <span th:utext="${exp.getInfo()}"></span>
+                                <p th:utext="${exp.getContent()}"></p>
                             </div>
                         </div>
                     </div>
@@ -144,8 +148,10 @@
         </div>
     </div>
 </main>
-
-<script type="text/javascript" src="/js/modal.js"></script>
-<script type="text/javascript" src="/js/profileHandle.js"></script>
 </body>
+<script type="text/javascript" src="/js/modalHandle.js"></script>
+<script type="text/javascript" src="/js/profileHandle.js"></script>
+<script type="text/javascript" src="/js/introduceHandle.js"></script>
+<script type="text/javascript" src="/js/api/apiTest.js"></script>
+
 </html>

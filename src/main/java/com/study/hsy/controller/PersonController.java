@@ -99,7 +99,7 @@ public class PersonController {
         return "indexForThymeleaf";
     }
 
-    @GetMapping("/handle")
+    @GetMapping("/handlebar")
     public String getUserinfoHandle(Model model) {
         Person person = new Person();
         person.setName("seoyeon");

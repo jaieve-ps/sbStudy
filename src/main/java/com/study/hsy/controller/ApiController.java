@@ -3,6 +3,7 @@ package com.study.hsy.controller;
 import com.study.hsy.model.Person;
 import com.study.hsy.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
@@ -21,12 +22,12 @@ public class ApiController {
         return personService.getPerson(id);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/personList")
     public List<Person> findAll(){
         return personService.findAll();
     }
 
-    @GetMapping("/skillMap")
+    @GetMapping("/skillList")
     public Map<String, Map<String, String>> getSkillMap() {
         Map<String, Map<String, String>> skillMap = new HashMap<String, Map<String, String>>();
         Map<String, String> skillContent = new HashMap<String, String>();
@@ -54,5 +55,11 @@ public class ApiController {
         skillMap.put("Front-end", skillContent);
 
         return skillMap;
+    }
+
+    // 예제
+    @GetMapping("/{ids}")
+    public void getVar(Model model, @PathVariable(name="ids") Long id){
+
     }
 }
