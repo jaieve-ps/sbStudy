@@ -2,10 +2,14 @@ $(document).ready(function(){
     console.log("apiTest.js 실행");
     const apiBtn = document.querySelector('#apiBtn'),
         pageTitle = document.querySelector('#pageTitle');
+    let isClick = false;
 
     function changeTitle() {
-        pageTitle.innerHTML += "<span> NEW! </h3>";
-        // 실행되면 플래그 바꿔서 두번째부터는 실행되지 않게 조건문 걸기
+        if (isClick == false) {
+            pageTitle.innerHTML += "<span> NEW! </h3>";
+            isClick = true;
+            apiBtn.removeEventListener('click', btnClick);
+        }
     }
 
     function btnClick() {
@@ -24,5 +28,6 @@ $(document).ready(function(){
 
     }
     apiBtn.addEventListener('click', btnClick);
+
 
 });

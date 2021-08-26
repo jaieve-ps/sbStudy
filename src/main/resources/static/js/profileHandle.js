@@ -9,14 +9,10 @@ $(document).ready(function(){
         type: "GET",
         data: {id:1}
     }).done(function(result){
-//        console.table(result);
         const data = {
             name : result.name,
             email : result.email,
-//            favQuote : result.favQuote,
-//            religion : result.religion
         }
-
         const html = template(data);
         $('#templateAppend').append(html);
     }).fail(function(xhr, error, status) {
