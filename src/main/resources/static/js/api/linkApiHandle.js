@@ -7,17 +7,15 @@ $(document).ready(function(){
         url: "/api/link",
         type: "GET"
     }).done(function (result) {
-        // data for template
-        let data = {
-            linkList: []
+        // result type is object whom value is array
+        let linkArray = [];
+        // object -> List
+        for (var i = 0; i < Object.keys(result).length; i ++){
+            linkArray[i] = result[i+1][0];
         }
-        // JSON -> Object
-        const obj = eval(result);
-        // object -> domain & url 가진 List
-        let linkList = new Array(Object.keys(obj).length);
-        for (var i = 0; i < Object.keys(obj).length; i ++){
-            //object in List : key is domain and url
-            data.linkList[i] = obj[i+1][0];
+        // linkArray type is Array
+        const data = {
+            linkArray : linkArray
         }
         const html = template(data);
         $('#templateProfileAppend').append(html);

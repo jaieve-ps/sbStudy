@@ -18,7 +18,6 @@ $(document).ready(function(){
             type:'get',
             data:{id:1}
         }).done(function (result) {
-            console.log(result);
             changeTitle(); // 상단의 Resume에 데이터 변화를 알려주는 "NEW!" 추가
         }).fail(function(xhr, error, status){
             console.table(xhr);

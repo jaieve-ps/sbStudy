@@ -53,13 +53,13 @@
                     <div id="templateProfileAppend" class="card-body text-center">
                         <script id="template-profile" type="text/x-handlebars-template">
                             <h3 class="card-text text-uppercase text-center">{{name}}</h3>
-                            <span><strong>Email&nbsp;</strong>{{email}}</span>
+                            <span><strong>Email&nbsp;</strong>{{email}}</span><br/>
                         </script>
                         <script id="template-link" type="text/x-handlebars-template">
                             <span><strong>Link&nbsp;</strong>
-                                {{#linklist}}
-                                <a href="{{@url}}">{{@domain}} link1</a>
-                                {{/linklist}}
+                                {{#linkArray}}
+                                <a href="{{@url}}">{{domain}}</a>
+                                {{/linkArray}}
                             </span>
                         </script>
                         <!-- TODO linkApiHandle.js에서 api로 받은 data가 화면에 출력되지 않는 문제 해결해야 함-->
@@ -133,14 +133,21 @@
                     </h2>
                     <div id="collapseTwo" class="accordion-collapse collapse show" aria-labelledby="headingTwo"
                          data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="card p-3 mb-3" th:each="category : ${skillMap.keySet()}">
-                                <h3><strong th:text="${category}"></strong></h3>
-                                <h6 th:utext="${skillMap.get(category).get('stack')}"></h6>
-                                <span class="mb-2"
-                                      th:utext="'IDE : ' + ${skillMap.get(category).get('tool')}"><br/></span>
-                                <p th:utext="${skillMap.get(category).get('detail')}"></p>
+                        <div class="accordion-body" id="skill-location">
+                            <div class="card p-3 mb-3">
+                                <h3><strong >Skill Catetory</strong></h3>
+                                <span class="my-5 text-center">Press the [API TEST] button to see the content.</span>
                             </div>
+                            <script id="template-skill" type="text/x-handlebars-template">
+                                {{#skillArray}}
+                                <div class="card p-3 mb-3">
+                                    <h3><strong >{{category}}</strong></h3>
+                                    <h6>{{stack}}</h6>
+                                    <span class="mb-2">IDE : {{tool}}<br/></span>
+                                    <p >{{detail}}</p>
+                                </div>
+                                {{/skillArray}}
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -155,14 +162,21 @@
                     <div id="collapseThree" class="accordion-collapse collapse show"
                          aria-labelledby="headingThree"
                          data-bs-parent="#accordionExample">
-                        <div class="accordion-body">
-                            <div class="card p-3 mb-3" th:each="exp:${experienceList}">
-                                <!--                                <p th:text="${entry.getKey()}"></p>-->
-                                <h5><strong th:utext="${exp.getTitle()}"></strong></h5>
-                                <span class="mb-2" th:utext="${exp.getDate()}"></span>
-                                <span th:utext="${exp.getInfo()}"></span>
-                                <p th:utext="${exp.getContent()}"></p>
+                        <div class="accordion-body" id="experience-location">
+                            <div class="card p-3 mb-3">
+                                <h3><strong >Experience Catetory</strong></h3>
+                                <span class="my-5 text-center">Press the [API TEST] button to see the content.</span>
                             </div>
+                            <script id="template-exp" type="text/x-handlebars-template">
+                                {{#experienceList}}
+                                <div class="card p-3 mb-3">
+                                    <h5><strong>{{title}}</strong></h5>
+                                    <span class="mb-2">{{date}}</span>
+                                    <span >{{info}}</span>
+                                    <p>{{content}}</p>
+                                </div>
+                                {{/experienceList}}
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -178,3 +192,6 @@
 <script type="text/javascript" src="/js/api/introduceApiHandle.js"></script>
 <script type="text/javascript" src="/js/api/linkApiHandle.js"></script>
 <script type="text/javascript" src="/js/api/modalApiHandle.js"></script>
+<script type="text/javascript" src="/js/api/skillApiHandle.js"></script>
+<script type="text/javascript" src="/js/api/experienceApiHandle.js"></script>
+
