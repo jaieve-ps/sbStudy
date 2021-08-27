@@ -8,7 +8,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <!-- bootstrap JS -->
     <script type="text/javascript" src="/bootstrap/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
-
     <!-- Custom styles for this template -->
     <link type="text/css" rel="stylesheet" href="/css/main.css"/>
     <title>Portfolio for Thymeleaf</title>
@@ -43,13 +42,13 @@
 <main role="main" class="flex-shrink-0">
     <div class="container container-lg">
         <h1 class="my-5 pt-3">🖥 Resume</h1>
-        <div class="row d-xl-flex justify-content-cente">
+        <div class="row d-xl-flex justify-content-center">
             <!-- Profile boc Start-->
             <div class="col-xl-3 mb-5 profile-box d-flex justify-content-center">
                 <div class="card d-flex mx-3 justify-content-center" style="width: 60%;">
                     <img src="/image/profile.png" class="card-img-top" alt="이미지 사진">
                     <div class="card-body text-center">
-                        <h3 class="card-text text-uppercase text-center" th:text="${person.userName}"></h3>
+                        <h3 class="card-text text-uppercase text-center" th:text="${person.Name}"></h3>
                         <span><strong>Link&nbsp;</strong>
                             <a class="portfolio-link" th:each="key:${linkMap.keySet()}" th:href="${linkMap.get(key)}"
                                th:utext="${key} + ' '"></a>&nbsp;
