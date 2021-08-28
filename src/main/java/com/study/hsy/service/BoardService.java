@@ -19,4 +19,8 @@ public class BoardService {
     public List<Board> getBoardList(){
         return boardMapper.getBoardList();
     }
+
+    public Board getBoardOne(Long id) { return boardMapper.getBoardOne(id);}
+
+    public int writeBoard(Board board) { return boardMapper.writeBoard(board);}
 }

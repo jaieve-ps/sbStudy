@@ -4,7 +4,7 @@ package com.study.hsy.model;
 import java.time.LocalDateTime;
 
 public class Board {
-    private int seq;
+    private Long seq;
     private int group;
     private String writer;
     private String title;
@@ -16,7 +16,7 @@ public class Board {
     private String updateId;
     private LocalDateTime updateDate;
 
-    public Board(int seq, int group, String writer, String title, String content, int hits, String delete, String insertId, LocalDateTime insertDate, String updateId, LocalDateTime updateDate) {
+    public Board(Long seq, int group, String writer, String title, String content, int hits, String delete, String insertId, LocalDateTime insertDate, String updateId, LocalDateTime updateDate) {
         this.seq = seq;
         this.group = group;
         this.writer = writer;
@@ -33,11 +33,11 @@ public class Board {
     public Board() {
     }
 
-    public int getSeq() {
+    public Long getSeq() {
         return seq;
     }
 
-    public void setSeq(int seq) {
+    public void setSeq(Long seq) {
         this.seq = seq;
     }
 

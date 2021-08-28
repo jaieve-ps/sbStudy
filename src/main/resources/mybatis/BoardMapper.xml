@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.hsy.mapper.BoardMapper">
-    <resultMap id="boardListResultMap" type="Board">
-        <id column="BOARD_SEQ" property="seq"/>
+    <resultMap id="boardResultMap" type="Board">
+        <id column="BOARD_SEQ" property="seq" javaType="java.lang.Long"/>
         <result column="BOARD_RE_REF" property="group"/>
         <result column="BOARD_WRITER" property="writer"/>
         <result column="BOARD_TITLE" property="title"/>
@@ -15,7 +15,16 @@
         <result column="UPD_DATE" property="updateDate" javaType="java.time.LocalDateTime"/>
     </resultMap>
 
-    <select id="getBoardList" resultMap="boardListResultMap">
+    <select id="getBoardList" resultMap="boardResultMap">
         Select * FROM BOARD;
     </select>
+
+    <select id="getBoardOne" parameterType="java.lang.Long" resultMap="boardResultMap">
+        select * from board where BOARD_SEQ = #{seq}
+    </select>
+
+    <insert id="writeBoard" parameterType="board">
+        insert into board (BOARD_RE_REF, BOARD_WRITER, BOARD_TITLE, BOARD_CONTENT, INS_USER_ID, INS_DATE)
+        values (#{group}, #{writer},#{title}, #{content},#{insertId}, now())
+    </insert>
 </mapper>
