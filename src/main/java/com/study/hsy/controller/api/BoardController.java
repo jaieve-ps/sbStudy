@@ -20,5 +20,9 @@ public class BoardController {
     @GetMapping("/{id}")
     public Board getBoardOne(@PathVariable(name="id") Long board_seq) { return boardService.getBoardOne(board_seq);}
 
-
+    @PostMapping
+    public String write(Board board) {
+        boardService.writeBoard(board);
+        return "redirect:/board";
+    }
 }
