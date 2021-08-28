@@ -16,15 +16,34 @@
     </resultMap>
 
     <select id="getBoardList" resultMap="boardResultMap">
-        Select * FROM BOARD;
+        Select *
+        FROM BOARD;
     </select>
 
     <select id="getBoardOne" parameterType="java.lang.Long" resultMap="boardResultMap">
-        select * from board where BOARD_SEQ = #{seq}
+        select *
+        from board
+        where BOARD_SEQ = #{seq}
     </select>
 
     <insert id="writeBoard" parameterType="board">
         insert into board (BOARD_RE_REF, BOARD_WRITER, BOARD_TITLE, BOARD_CONTENT, INS_USER_ID, INS_DATE)
-        values (#{group}, #{writer},#{title}, #{content},#{insertId}, now())
+        values (#{group}, #{writer}, #{title}, #{content}, #{insertId}, now())
     </insert>
+
+    <update id="updateBoard" parameterType="board">
+        UPDATE BOARD
+        SET BOARD_RE_REF  = #{group},
+            BOARD_TITLE   = #{title},
+            BOARD_CONTENT = #{content},
+            UPD_USER_ID   = #{updateId},
+            UPD_DATE      = now()
+        WHERE BOARD_SEQ = #{seq}
+    </update>
+
+    <update id="deleteBoard" parameterType="java.lang.Long">
+        UPDATE BOARD
+        SET DEL_YN  = 'Y'
+        WHERE BOARD_SEQ = #{seq}
+    </update>
 </mapper>

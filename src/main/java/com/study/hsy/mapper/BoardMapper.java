@@ -10,4 +10,6 @@ public interface BoardMapper {
     List<Board> getBoardList();
     Board getBoardOne(Long id);
     int writeBoard(Board board);
+    int updateBoard(Board board);
+    int deleteBoard(Long id);
 }

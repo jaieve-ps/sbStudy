@@ -23,4 +23,8 @@ public class BoardService {
     public Board getBoardOne(Long id) { return boardMapper.getBoardOne(id);}
 
     public int writeBoard(Board board) { return boardMapper.writeBoard(board);}
+
+    public int updateBoard(Board board) { return boardMapper.updateBoard(board);}
+
+    public int deleteBoard(Long id) { return boardMapper.deleteBoard(id);}
 }
