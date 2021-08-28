@@ -1,10 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- bootstrap JS -->
+    <script type="text/javascript" src="/bootstrap/bootstrap-4.6.0-dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom styles for this template -->
+    <link type="text/css" rel="stylesheet" href="/css/main.css"/>
+    <title>Board</title>
 </head>
 <body>
+<!-- Fixed navbar -->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="#">Portfolio For Thymeleaf</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/polestar/handlebar">Home</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Board</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+</header>
 
+<!-- Begin page content -->
+<main role="main" class="flex-shrink-0">
+    <div class="container container-lg">
+        <h1 class="my-5 pt-3">🧾 Board</h1>
+        <div class="justify-content-between d-flex">
+            <form class="form-inline ml-0 pl-0">
+                <div class="form-group mx-sm-3 mb-2 ">
+                    <label for="searchKeyword" class="sr-only">검색어</label>
+                    <input type="text" class="form-control" id="searchKeyword" placeholder="Keyword">
+                </div>
+                <button type="submit" class="btn mb-2 btn-outline-dark">조회</button>
+            </form>
+            <div class="modalBtn-group my-3 d-flex mr-0 pr-0">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-outline-dark mx-2" data-toggle="modal" data-target="#insertModal">
+                    등록
+                </button>
+                <button type="button" class="btn btn-outline-dark mx-2" data-toggle="modal" data-target="#updateModal">
+                    수정
+                </button>
+            </div>
+        </div>
+        <div class="row d-xl-flex justify-content-center">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col" class="col-1">번호</th>
+                    <th scope="col" class="col-1">조회수</th>
+                    <th scope="col" class="col-2">카테고리</th>
+                    <th scope="col" class="col-4">제목</th>
+                    <th scope="col" class="col-2">작성자</th>
+                    <th scope="col" class="col-2">작성일</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="board:${boardList}">
+                    <th scope="row" th:text="${board.seq}">1</th>
+                    <td th:text="${board.hits}">Mark</td>
+                    <td th:text="${board.group}">@mdo</td>
+                    <td th:text="${board.title}">Mark</td>
+                    <td th:text="${board.writer}">Otto</td>
+                    <td th:text="${board.insertDate}">Otto</td>
+                </tr>
+                </tbody>
+            </table>
+            <nav class="btn-toolbar justify-content-between" aria-label="Page navigation example">
+                <div><!-- 정렬을 위한 empty div--></div>
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+                <button type="button" class="btn btn-outline-dark">글쓰기</button>
+            </nav>
+        </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="insertModal" tabindex="-1" aria-labelledby="insertModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="insertModalLabel">등록</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- TODO 등록 form 넣기-->>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">등록</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal 2-->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog  modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateModalLabel">수정</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ... <!-- TODO 수정 form 넣기-->>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">수정</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
 </body>
 </html>

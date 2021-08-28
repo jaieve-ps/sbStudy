@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -23,6 +24,13 @@ public class BoardController {
         model.addAttribute("postList", postList);
         return postList;
 //        return "board/list";
+    }
+
+    @GetMapping("/view")
+    public ModelAndView getBoardList2() {
+        ModelAndView mav = new ModelAndView("board/list");
+        mav.addObject("boardList", boardService.getBoardList());
+        return mav;
     }
 
     @GetMapping("/{id}")

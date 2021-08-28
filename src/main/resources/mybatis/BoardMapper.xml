@@ -46,4 +46,5 @@
         SET DEL_YN  = 'Y'
         WHERE BOARD_SEQ = #{seq}
     </update>
+
 </mapper>
