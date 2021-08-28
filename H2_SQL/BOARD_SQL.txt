@@ -1,0 +1,32 @@
+create table board (
+board_seq int unsigned not null auto_increment,
+board_re_ref int,
+board_writer varchar(20),
+board_title varchar(50),
+board_content varchar(2000),
+board_hits int unsigned not null default '0',
+del_yn varchar(1) not null default 'n',
+ins_user_id varchar(20),
+ins_date datetime,
+upd_user_id varchar(20) NULL,
+upd_date datetime NULL,
+primary key(board_seq)
+);
+
+SELECT * FROM BOARD;
+
+insert into board (board_re_ref, board_writer, board_title, board_content, ins_user_id, ins_date)
+values (0, '게시글 작성자1','게시글 1', 'TEST01','작성자1ID', now());
+
+insert into board (board_re_ref, board_writer, board_title, board_content, ins_user_id, ins_date)
+values (0, '게시글 작성자2','게시글 2', 'TEST02','작성자2ID', now()),
+(0, '게시글 작성자3','게시글 3', 'TEST03','작성자3ID', now()),
+(0, '게시글 작성자4','게시글 4', 'TEST04','작성자4ID', now()),
+(0, '게시글 작성자5','게시글 5', 'TEST05','작성자5ID', now()),
+(0, '게시글 작성자6','게시글 6', 'TEST06','작성자6ID', now()),
+(0, '게시글 작성자7','게시글 7', 'TEST07','작성자7ID', now()),
+(0, '게시글 작성자8','게시글 8', 'TEST08','작성자8ID', now()),
+(0, '게시글 작성자9','게시글 9', 'TEST09','작성자9ID', now()),
+(0, '게시글 작성자10','게시글 10', 'TEST10','작성자10ID', now()),
+(0, '게시글 작성자11','게시글 11', 'TEST11','작성자11ID', now()),
+(0, '게시글 작성자12','게시글 12', 'TEST12','작성자12ID', now());

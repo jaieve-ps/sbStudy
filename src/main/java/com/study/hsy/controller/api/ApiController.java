@@ -1,4 +1,4 @@
-package com.study.hsy.controller;
+package com.study.hsy.controller.api;
 
 import com.study.hsy.model.Experience;
 import com.study.hsy.model.Link;
